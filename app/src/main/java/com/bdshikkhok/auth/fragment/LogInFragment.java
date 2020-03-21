@@ -16,18 +16,35 @@ import androidx.annotation.IdRes;
 import androidx.fragment.app.Fragment;
 
 import com.bdshikkhok.R;
+import com.bdshikkhok.RetrofitClientInstance;
+import com.bdshikkhok.auth.network.APIInterface;
+import com.bdshikkhok.auth.network.request.AuthRequest;
+import com.bdshikkhok.auth.network.response.AuthResponse;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LogInFragment extends Fragment
         implements RadioGroup.OnCheckedChangeListener {
 
-    View v;
-    private Button mLogin;
-    private EditText mEmail, mPassword;
-    private RadioGroup radioGroupL;
-    private String radioGroupScelect;
+    View fragment_view;
+    @BindView(R.id.email)
+    EditText mEmail;
+    @BindView(R.id.password)
+    EditText mPassword;
+    @BindView(R.id.Login)
+    Button mLogin;
+    @BindView(R.id.radioGroupLogin)
+    RadioGroup radioGroupL;
+    @BindView(R.id.passwordRecoverLayout)
+    LinearLayout mpasswordRecoverLayout;
+    private String radioGroupSelect = "";
     private ProgressDialog progressDialog;
 
-    LinearLayout mpasswordRecoverLayout;
+
     private String email, password;
     private String select = "empty";
 
@@ -37,12 +54,8 @@ public class LogInFragment extends Fragment
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_log_in, container, false);
-
-        mEmail = (EditText) v.findViewById(R.id.email);
-        mPassword = (EditText) v.findViewById(R.id.password);
-        mLogin = (Button) v.findViewById(R.id.Login);
-        radioGroupL = (RadioGroup) v.findViewById(R.id.radioGroupLogin);
+        fragment_view = inflater.inflate(R.layout.fragment_log_in, container, false);
+        ButterKnife.bind(this, fragment_view);
 
         radioGroupL.setOnCheckedChangeListener(this);
 
@@ -54,7 +67,6 @@ public class LogInFragment extends Fragment
             }
         });
 
-        mpasswordRecoverLayout = (LinearLayout) v.findViewById(R.id.passwordRecoverLayout);
         mpasswordRecoverLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +77,7 @@ public class LogInFragment extends Fragment
             }
         });
 
-        return v;
+        return fragment_view;
     }
 
     @Override
@@ -73,13 +85,13 @@ public class LogInFragment extends Fragment
         switch (checkedId) {
             case R.id.radio_tutors_login:
                 //if (checked)
-                radioGroupScelect = "tutor";
-                Log.e("signUp", radioGroupScelect);
+                radioGroupSelect = "tutor";
+                Log.e("signUp", radioGroupSelect);
                 break;
             case R.id.radio_others_login:
                 // if (checked)
-                radioGroupScelect = "other";
-                Log.e("signUp", radioGroupScelect);
+                radioGroupSelect = "other";
+                Log.e("signUp", radioGroupSelect);
                 break;
         }
     }
@@ -95,10 +107,32 @@ public class LogInFragment extends Fragment
         } else if (password.equals("")) {
             Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_SHORT).show();
 
-        } else if (radioGroupScelect.equals("")) {
+        } /*else if (radioGroupSelect.equals("")) {
             Toast.makeText(getActivity(), "Please Select Student Or Teacher", Toast.LENGTH_SHORT).show();
-        } else {
+        } */else {
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("authenticating");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
 
+            APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
+            Call<AuthResponse> authResponseCall = apiInterface.authenticate(new AuthRequest(email, true, password));
+            authResponseCall.enqueue(new Callback<AuthResponse>() {
+                @Override
+                public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                    progressDialog.hide();
+                    Log.e("Auth", "response : " + response.code());
+                    Log.e("Auth", "response : " + response.message());
+                    //Log.e("Auth", "response : " + response.body().toString());
+                    //Toast.makeText(getActivity(), response.body().getIdToken(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<AuthResponse> call, Throwable t) {
+                    progressDialog.hide();
+                    Log.e("Auth", "Falure : " + t.getMessage());
+                }
+            });
         }
     }
 

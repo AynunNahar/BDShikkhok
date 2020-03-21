@@ -14,12 +14,24 @@ import androidx.fragment.app.Fragment;
 
 import com.bdshikkhok.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SignUpFragment extends Fragment implements
         RadioGroup.OnCheckedChangeListener {
-    private EditText sEmail, sPassword, sName, sMobile;
-    private Button sSignUp;
+    @BindView(R.id.email)
+    EditText sEmail;
+    @BindView(R.id.password)
+    EditText sPassword;
+    @BindView(R.id.textInputEditTextName)
+    EditText sName;
+    @BindView(R.id.textInputEditTextMobail)
+    EditText sMobile;
+    @BindView(R.id.signupbutton)
+    Button sSignUp;
+    @BindView(R.id.radioGroup)
+    RadioGroup radioGroup;
 
-    private RadioGroup radioGroup;
     private String radioButtonSelect;
     private static final String TAG = SignUpFragment.class.getSimpleName();
 
@@ -31,14 +43,8 @@ public class SignUpFragment extends Fragment implements
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         v = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        ButterKnife.bind(this, v);
 
-        sEmail = (EditText) v.findViewById(R.id.email);
-        sPassword = (EditText) v.findViewById(R.id.password);
-        sName = (EditText) v.findViewById(R.id.textInputEditTextName);
-        sMobile = (EditText) v.findViewById(R.id.textInputEditTextMobail);
-        sSignUp = (Button) v.findViewById(R.id.signupbutton);
-        // mSignInSpinner=(Spinner)v.findViewById(R.id.signInSpinner);
-        radioGroup = (RadioGroup) v.findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
 
         sSignUp.setOnClickListener(new View.OnClickListener() {
