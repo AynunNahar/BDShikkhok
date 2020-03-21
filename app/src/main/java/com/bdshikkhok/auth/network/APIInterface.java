@@ -5,9 +5,11 @@ import com.bdshikkhok.auth.network.response.AuthResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface APIInterface {
-    @POST("authenticate")
+    //@Headers({"Accept:application/json", "Content-Type:application/json;"})
+    @POST("/api/authenticate")
     Call<AuthResponse> authenticate(@Body AuthRequest authRequest);
 }

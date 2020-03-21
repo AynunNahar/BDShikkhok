@@ -14,11 +14,11 @@ public class AuthRequest {
     @Expose
     private String username;
 
-    public AuthRequest(String password, Boolean rememberMe, String username) {
+/*    public AuthRequest(String password, Boolean rememberMe, String username) {
         this.password = password;
         this.rememberMe = rememberMe;
         this.username = username;
-    }
+    }*/
 
     public String getPassword() {
         return password;

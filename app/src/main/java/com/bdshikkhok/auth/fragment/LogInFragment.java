@@ -115,16 +115,23 @@ public class LogInFragment extends Fragment
             progressDialog.setCancelable(false);
             progressDialog.show();
 
+            AuthRequest authRequest = new AuthRequest();
+            authRequest.setUsername(email);
+            authRequest.setRememberMe(true);
+            authRequest.setPassword(password);
+
             APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
-            Call<AuthResponse> authResponseCall = apiInterface.authenticate(new AuthRequest(email, true, password));
+            Call<AuthResponse> authResponseCall = apiInterface.authenticate(authRequest);
             authResponseCall.enqueue(new Callback<AuthResponse>() {
                 @Override
                 public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                     progressDialog.hide();
                     Log.e("Auth", "response : " + response.code());
                     Log.e("Auth", "response : " + response.message());
-                    //Log.e("Auth", "response : " + response.body().toString());
-                    //Toast.makeText(getActivity(), response.body().getIdToken(), Toast.LENGTH_SHORT).show();
+                    if ((response.code() == 200)) {
+                        Log.e("Auth", "response : " + response.body().getIdToken());
+                        Toast.makeText(getActivity(), response.body().getIdToken(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override
