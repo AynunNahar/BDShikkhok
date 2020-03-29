@@ -8,27 +8,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.fragment.app.Fragment;
 
 import com.bdshikkhok.R;
+import com.bdshikkhok.RetrofitClientInstance;
+import com.bdshikkhok.auth.network.APIInterface;
+import com.bdshikkhok.auth.network.request.RegisterRequest;
+import com.bdshikkhok.auth.network.response.AuthResponse;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignUpFragment extends Fragment implements
         RadioGroup.OnCheckedChangeListener {
     @BindView(R.id.email)
-    EditText sEmail;
+    EditText registerEmail;
     @BindView(R.id.password)
-    EditText sPassword;
+    EditText registerPassword;
     @BindView(R.id.textInputEditTextName)
-    EditText sName;
+    EditText registerName;
     @BindView(R.id.textInputEditTextMobail)
-    EditText sMobile;
+    EditText registerMobile;
     @BindView(R.id.signupbutton)
-    Button sSignUp;
+    Button registerButton;
+
     @BindView(R.id.radioGroup)
     RadioGroup radioGroup;
 
@@ -47,12 +58,12 @@ public class SignUpFragment extends Fragment implements
 
         radioGroup.setOnCheckedChangeListener(this);
 
-        sSignUp.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                name = sName.getText().toString();
-                mobile = sMobile.getText().toString();
+                name = registerName.getText().toString();
+                mobile = registerMobile.getText().toString();
 
                 signUp();
 
@@ -63,8 +74,46 @@ public class SignUpFragment extends Fragment implements
     }
 
     public void signUp() {
-        final String mEmail = sEmail.getText().toString();
-        password = sPassword.getText().toString();
+        email = registerEmail.getText().toString();
+        password = registerPassword.getText().toString();
+
+        RegisterRequest registerRequest = new RegisterRequest();
+        registerRequest.setActivated(false);
+        registerRequest.setAuthorities(new ArrayList<>());
+        registerRequest.setCreatedBy("");
+        registerRequest.setCreatedDate("");
+        registerRequest.setEmail(email);
+        registerRequest.setFirstName(name);
+        registerRequest.setId(0);
+        registerRequest.setImageUrl("");
+        registerRequest.setLangKey("");
+        registerRequest.setLastModifiedBy("");
+        registerRequest.setLastModifiedDate("");
+        registerRequest.setLastName("");
+        registerRequest.setPassword(password);
+        registerRequest.setLogin("");
+
+
+        APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
+        Call  registerResponseCall = apiInterface.register(registerRequest);
+
+        registerResponseCall.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.e("Auth", "response : " + response.code());
+                Log.e("Auth", "response : " + response.message());
+                if ((response.code() == 201)) {
+                    Log.e("Auth", "response : " + "Successfully loaded");
+                    Toast.makeText(getActivity(), "Successfull", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e("Auth", "Falure : " + t.getMessage());
+
+            }
+        });
 
     }
 
