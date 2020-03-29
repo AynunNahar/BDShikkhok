@@ -16,5 +16,5 @@ public interface APIInterface {
     Call<AuthResponse> authenticate(@Body AuthRequest authRequest);
 
     @POST("/api/register")
-    Call register(@Body RegisterRequest registerRequest);
+    Call<Void> register(@Body RegisterRequest registerRequest);
 }

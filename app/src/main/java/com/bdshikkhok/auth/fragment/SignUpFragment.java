@@ -62,9 +62,6 @@ public class SignUpFragment extends Fragment implements
             @Override
             public void onClick(View v) {
 
-                name = registerName.getText().toString();
-                mobile = registerMobile.getText().toString();
-
                 signUp();
 
             }
@@ -76,6 +73,8 @@ public class SignUpFragment extends Fragment implements
     public void signUp() {
         email = registerEmail.getText().toString();
         password = registerPassword.getText().toString();
+        name = registerName.getText().toString();
+        mobile = registerMobile.getText().toString();
 
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setActivated(false);
@@ -86,30 +85,30 @@ public class SignUpFragment extends Fragment implements
         registerRequest.setFirstName(name);
         registerRequest.setId(0);
         registerRequest.setImageUrl("");
-        registerRequest.setLangKey("");
+        registerRequest.setLangKey("en");
         registerRequest.setLastModifiedBy("");
         registerRequest.setLastModifiedDate("");
         registerRequest.setLastName("");
         registerRequest.setPassword(password);
-        registerRequest.setLogin("");
+        registerRequest.setLogin(name);
 
 
         APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
-        Call  registerResponseCall = apiInterface.register(registerRequest);
+        Call<Void>  registerResponseCall = apiInterface.register(registerRequest);
 
-        registerResponseCall.enqueue(new Callback() {
+        registerResponseCall.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 Log.e("Auth", "response : " + response.code());
                 Log.e("Auth", "response : " + response.message());
                 if ((response.code() == 201)) {
-                    Log.e("Auth", "response : " + "Successfully loaded");
-                    Toast.makeText(getActivity(), "Successfull", Toast.LENGTH_SHORT).show();
+                    Log.e("Auth", "response : " + "Successfully");
+                    Toast.makeText(getActivity(), "Successful", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Log.e("Auth", "Falure : " + t.getMessage());
 
             }

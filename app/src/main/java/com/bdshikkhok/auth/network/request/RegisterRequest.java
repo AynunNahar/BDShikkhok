@@ -11,7 +11,7 @@ public class RegisterRequest {
     private Boolean activated;
     @SerializedName("authorities")
     @Expose
-    private List<String> authorities = null;
+    private List<String> authorities;
     @SerializedName("createdBy")
     @Expose
     private String createdBy;
