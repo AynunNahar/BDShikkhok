@@ -182,10 +182,11 @@
             android:padding="10dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:background="@drawable/round_button"
+            android:background="@drawable/button_color_onclick"
             android:text="SAVE"
+            android:textStyle="bold"
             android:textSize="@dimen/my_text_value"
-            android:textColor="@color/colorBaseText"
+            android:textColor="@drawable/button_text_color"
             android:visibility="visible" />
 
 
