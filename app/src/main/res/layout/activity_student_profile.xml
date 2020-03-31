@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student_profileActivity"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8ABE51">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="#fff" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="#B2FF59"
+            app:tabSelectedTextColor="#fff"
+            app:tabTextColor="#212121" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/student_image"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#8ABE51"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="User Name"
+            android:textSize="24dp"
+            android:gravity="center"/>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_weight="0"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="First Name:"
+                android:textSize="24dp"
+                android:gravity="left"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:background="@drawable/textborder"
+                android:layout_weight="3"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="User"
+                android:textSize="18dp"
+                android:gravity="left"
+                android:enabled="false"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_weight="0"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Last Name:"
+                android:textSize="24dp"
+                android:gravity="left"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:background="@drawable/textborder"
+                android:layout_weight="3"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Name"
+                android:textSize="18dp"
+                android:gravity="left"
+                android:enabled="false"/>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Institution:"
+                android:textSize="24dp"
+                android:gravity="left"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:background="@drawable/textborder"
+                android:layout_weight="3"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Name of Institution"
+                android:textSize="18dp"
+                android:gravity="left"
+                android:enabled="false"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_weight="0"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Class:"
+                android:textSize="24dp"
+                android:gravity="left"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:background="@drawable/textborder"
+                android:layout_weight="2"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Read in class"
+                android:textSize="18dp"
+                android:gravity="left"
+                android:enabled="false"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_weight="0"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Contact Number:"
+                android:textSize="24dp"
+                android:gravity="left"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:background="@drawable/textborder"
+                android:layout_weight="3"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="01728337973"
+                android:textSize="18dp"
+                android:gravity="left" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_weight="0"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Email:"
+                android:textSize="24dp"
+                android:gravity="left"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:background="@drawable/textborder"
+                android:layout_weight="3"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="user@gmail.com"
+                android:textSize="18dp"
+                android:gravity="left" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+    </LinearLayout>
