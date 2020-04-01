@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +23,7 @@ import com.bdshikkhok.auth.network.APIInterface;
 import com.bdshikkhok.auth.network.request.AuthRequest;
 import com.bdshikkhok.auth.network.response.AuthResponse;
 import com.bdshikkhok.profile.StudentProfileActivity;
+import com.bdshikkhok.util.PreferencesManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -123,6 +123,9 @@ public class LogInFragment extends Fragment {
                         //Log.e("Auth", "response : " + response.body().getAccessToken());
                         startActivity(new Intent(getActivity(), StudentProfileActivity.class));
 
+
+                        PreferencesManager.getInstance().setToken(response.body().getAccessToken());
+                        Log.e("Auth", "response : " + response.body().getAccessToken());
                         Toast.makeText(getActivity(), response.body().getAccessToken(), Toast.LENGTH_SHORT).show();
                     }
                 }
