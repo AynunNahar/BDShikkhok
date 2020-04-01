@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Student_profileActivity">
+    tools:context=".StudentProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,178 +20,189 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/student_image"
-            android:background="@color/colorPrimary"
-            app:civ_border_color="#8ABE51"
-            app:civ_border_width="2dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:theme="@style/TextLabel">
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:enabled="false"
-                android:gravity="center"
-                android:hint="User Name"
-                android:textSize="18dp"
-                android:maxLength="15"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp">
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/student_image"
+                android:background="@drawable/profile_image_background"
+                app:civ_border_color="#8ABE51"
+                app:civ_border_width="1dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel"
-                android:layout_marginBottom="10dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textborder"
-                    android:hint="First Name"
-                    android:padding="10dp"
-                    android:textSize="@dimen/my_text_value"
-                    android:maxLength="40"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:theme="@style/TextLabel">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/last_name"
+                    android:id="@+id/user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textborder"
-                    android:hint="Last Name"
-                    android:padding="10dp"
-                    android:textSize="@dimen/my_text_value"
-                    android:maxLength="40"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/institute"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textborder"
-                    android:hint="Institute"
-                    android:padding="10dp"
-                    android:textSize="@dimen/my_text_value"
-                    android:maxLength="40"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/student_class"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textborder"
-                    android:hint="Class"
-                    android:padding="10dp"
-                    android:textSize="@dimen/my_text_value"
-                    android:maxLength="40"
-                    android:inputType="number"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/student_contact_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textborder"
+                    android:background="@android:color/transparent"
                     android:enabled="false"
-                    android:hint="Contact Number"
-                    android:padding="10dp"
-                    android:textSize="@dimen/my_text_value"
-                    android:maxLength="40"
-                    android:inputType="number" />
+                    android:gravity="center"
+                    android:hint="User Name"
+                    android:textSize="18dp"
+                    android:maxLength="15"
+                    android:textColor="#f50529"
+                    android:padding="5dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel">
+                android:orientation="vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/student_email"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textborder"
-                    android:hint="Email"
-                    android:padding="10dp"
-                    android:textSize="@dimen/my_text_value"
-                    android:maxLength="40"
-                    android:inputType="text"
-                    android:enabled="false"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
+                    android:theme="@style/TextLabel">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textborder"
+                        android:hint="First Name"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value"
+                        android:maxLength="40"
+                        android:inputType="text"
+                        android:textColor="#f50529"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textborder"
+                        android:hint="Last Name"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value"
+                        android:maxLength="40"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/institute"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textborder"
+                        android:hint="Institute"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value"
+                        android:maxLength="40"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/student_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textborder"
+                        android:hint="Class"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value"
+                        android:maxLength="40"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/student_contact_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textborder"
+                        android:enabled="false"
+                        android:hint="Contact Number"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value"
+                        android:maxLength="15"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/student_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textborder"
+                        android:hint="Email"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value"
+                        android:maxLength="40"
+                        android:inputType="text"
+                        android:enabled="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
 
-        <Button
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:id="@+id/edit_profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/button_color_onclick"
-            android:text="SAVE"
-            android:textStyle="bold"
-            android:textSize="@dimen/my_text_value"
-            android:textColor="@drawable/button_text_color"
-            android:visibility="visible" />
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/button_color_onclick"
+                android:text="SAVE"
+                android:textStyle="bold"
+                android:textSize="@dimen/my_text_value"
+                android:textColor="@drawable/button_text_color"
+                android:visibility="visible" />
 
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
+    </ScrollView>
 
 </LinearLayout>
