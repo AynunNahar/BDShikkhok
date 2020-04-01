@@ -1,25 +1,22 @@
 package com.bdshikkhok.profile;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bdshikkhok.R;
 import com.bdshikkhok.RetrofitClientInstance;
-import com.bdshikkhok.profile.network.ProfileAPIIterface;
+import com.bdshikkhok.profile.network.ProfileAPInterface;
 import com.bdshikkhok.profile.network.ProfileResponse;
+import com.bdshikkhok.util.PreferencesManager;
 import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
@@ -60,36 +57,38 @@ public class StudentProfileActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        ProfileAPIIterface profileAPIIterface = RetrofitClientInstance.getRetrofitInstance().create(ProfileAPIIterface.class);
-        Call<ProfileResponse> profileResponseCall=profileAPIIterface.me(2);
+        PreferencesManager.initializeInstance(StudentProfileActivity.this);
+        ProfileAPInterface profileAPInterface = RetrofitClientInstance.getRetrofitInstance().create(ProfileAPInterface.class);
+        Call<ProfileResponse> profileResponseCall = profileAPInterface.me("Bearer " + PreferencesManager.getInstance().getToken());
         profileResponseCall.enqueue(new Callback<ProfileResponse>() {
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                if(response.isSuccessful()){
+                progressDialog.dismiss();
+                if (response.code() == 200) {
                     stu_firstName.setText(response.body().getFirstName());
                     stu_lastName.setText(response.body().getLastName());
                     //stu_institute.setVisibility(View.VISIBLE);
-                   // stu_institute.setText(response.body().getInstitute());
+                    // stu_institute.setText(response.body().getInstitute());
                     //stu_class.setText(response.body().getClass());
                     stu_email.setText(response.body().getEmail());
                     userName.setText(response.body().getUsername());
                     stu_class.setText(response.body().getClass().toString());
-                    stu_institute.setText(response.body().getInstitute().toString());
-                }
-                else {
-
+                    //stu_institute.setText(response.body().getInstitute().toString());
+                } else {
+                    Log.e("Auth", "Falure : " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
-
+                progressDialog.dismiss();
+                Log.e("Auth", "Falure : " + t.getMessage());
             }
         });
 
     }
 
-    public void setProfileData(){
+    public void setProfileData() {
 
     }
 

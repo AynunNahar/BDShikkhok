@@ -110,6 +110,7 @@ public class LogInFragment extends Fragment {
             authRequest.setUsernameOrEmail(emailOrUsername);
             //authRequest.setRememberMe(true);
             authRequest.setPassword(password);
+            PreferencesManager.initializeInstance(getActivity());
 
             APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
             Call<AuthResponse> authResponseCall = apiInterface.signin(authRequest);
@@ -119,7 +120,7 @@ public class LogInFragment extends Fragment {
                     progressDialog.hide();
                     Log.e("Auth", "response : " + response.code());
                     //Log.e("Auth", "response : " + response.message());
-                    if ((response.code() == 200)) {
+                    if (response.code() == 200) {
                         //Log.e("Auth", "response : " + response.body().getAccessToken());
                         startActivity(new Intent(getActivity(), StudentProfileActivity.class));
 
