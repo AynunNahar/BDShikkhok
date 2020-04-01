@@ -94,7 +94,7 @@ public class SignUpFragment extends Fragment implements
 
 
         APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
-        Call<Void>  registerResponseCall = apiInterface.register(registerRequest);
+        Call<Void>  registerResponseCall = apiInterface.signup(registerRequest);
 
         registerResponseCall.enqueue(new Callback<Void>() {
             @Override

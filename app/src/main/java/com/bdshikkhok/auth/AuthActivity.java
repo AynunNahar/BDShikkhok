@@ -17,8 +17,8 @@ import butterknife.ButterKnife;
 
 public class AuthActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+    //@BindView(R.id.toolbar)
+    //Toolbar mToolbar;
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     @BindView(R.id.tabLayout)
@@ -34,9 +34,9 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void init() {
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("BD শিক্ষক");
-        getSupportActionBar().setLogo(R.drawable.tutors);
+        //setSupportActionBar(mToolbar);
+        //getSupportActionBar().setTitle("BD শিক্ষক");
+        //getSupportActionBar().setLogo(R.drawable.tutors);
 
         setupMyViewpager(mViewPager);
         mTabLayout.setupWithViewPager(mViewPager);

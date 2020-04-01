@@ -40,8 +40,6 @@ public class LogInFragment extends Fragment {
     EditText mPassword;
     @BindView(R.id.Login)
     Button mLogin;
-    @BindView(R.id.radioGroupLogin)
-    RadioGroup radioGroupL;
     @BindView(R.id.passwordRecoverLayout)
     LinearLayout mpasswordRecoverLayout;
     @BindView(R.id.write_email)
@@ -76,8 +74,6 @@ public class LogInFragment extends Fragment {
         mpasswordRecoverLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // FirebaseAuth auth = FirebaseAuth.getInstance();
-                String emailAddress = emailOrUsername;
                 // Toast.makeText(getActivity(),"Email: "+emailAddress,Toast.LENGTH_LONG).show();
 
             }
@@ -121,11 +117,12 @@ public class LogInFragment extends Fragment {
                 @Override
                 public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                     progressDialog.hide();
-                    startActivity(new Intent(getActivity(), StudentProfileActivity.class));
                     Log.e("Auth", "response : " + response.code());
-                    Log.e("Auth", "response : " + response.message());
+                    //Log.e("Auth", "response : " + response.message());
                     if ((response.code() == 200)) {
-                        Log.e("Auth", "response : " + response.body().getAccessToken());
+                        //Log.e("Auth", "response : " + response.body().getAccessToken());
+                        startActivity(new Intent(getActivity(), StudentProfileActivity.class));
+
                         Toast.makeText(getActivity(), response.body().getAccessToken(), Toast.LENGTH_SHORT).show();
                     }
                 }
