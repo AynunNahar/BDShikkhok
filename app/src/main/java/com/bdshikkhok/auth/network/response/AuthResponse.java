@@ -5,16 +5,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class AuthResponse {
 
-    @SerializedName("id_token")
-    @Expose
-    private String idToken;
+        @SerializedName("accessToken")
+        @Expose
+        private String accessToken;
+        @SerializedName("tokenType")
+        @Expose
+        private String tokenType;
 
-    public String getIdToken() {
-        return idToken;
-    }
+        public String getAccessToken() {
+            return accessToken;
+        }
 
-    public void setIdToken(String idToken) {
-        this.idToken = idToken;
-    }
+        public void setAccessToken(String accessToken) {
+            this.accessToken = accessToken;
+        }
+
+        public String getTokenType() {
+            return tokenType;
+        }
+
+        public void setTokenType(String tokenType) {
+            this.tokenType = tokenType;
+        }
 
 }
