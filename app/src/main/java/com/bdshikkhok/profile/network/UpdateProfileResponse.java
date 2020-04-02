@@ -43,7 +43,7 @@ public class UpdateProfileResponse {
     private Object otp;
     @SerializedName("roles")
     @Expose
-    private List<Role> roles = null;
+    private List<Role> roles;
 
     public String getCreatedAt() {
         return createdAt;

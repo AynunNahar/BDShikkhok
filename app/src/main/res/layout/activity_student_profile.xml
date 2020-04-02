@@ -40,27 +40,18 @@
                 app:civ_border_color="#8ABE51"
                 app:civ_border_width="1dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:theme="@style/TextLabel">
-
-                <TextView
-                    android:id="@+id/user_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:gravity="center"
-                    android:hint="User Name"
-                    android:maxLength="15"
-                    android:padding="5dp"
-                    android:textColor="#f50529"
-                    android:textSize="18dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="User Name"
+                android:maxLength="15"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,7 +76,7 @@
                         android:inputType="text"
                         android:maxLength="40"
                         android:padding="10dp"
-                        android:textColor="#000000"
+                        android:textColor="@color/colorBlackText"
                         android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +96,8 @@
                         android:inputType="text"
                         android:maxLength="40"
                         android:padding="10dp"
-                        android:textSize="@dimen/my_text_value" />
+                        android:textSize="@dimen/my_text_value"
+                        android:textColor="@color/colorBlackText"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -124,7 +116,8 @@
                         android:inputType="text"
                         android:maxLength="40"
                         android:padding="10dp"
-                        android:textSize="@dimen/my_text_value" />
+                        android:textSize="@dimen/my_text_value"
+                        android:textColor="@color/colorBlackText"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -143,7 +136,8 @@
                         android:inputType="number"
                         android:maxLength="40"
                         android:padding="10dp"
-                        android:textSize="@dimen/my_text_value" />
+                        android:textSize="@dimen/my_text_value"
+                        android:textColor="@color/colorBlackText"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -162,7 +156,8 @@
                         android:inputType="number"
                         android:maxLength="15"
                         android:padding="10dp"
-                        android:textSize="@dimen/my_text_value" />
+                        android:textSize="@dimen/my_text_value"
+                        android:textColor="@color/colorBlackText"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -181,7 +176,8 @@
                         android:inputType="text"
                         android:maxLength="40"
                         android:padding="10dp"
-                        android:textSize="@dimen/my_text_value" />
+                        android:textSize="@dimen/my_text_value"
+                        android:textColor="@color/colorBlackText"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

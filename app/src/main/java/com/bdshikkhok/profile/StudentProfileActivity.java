@@ -3,6 +3,7 @@ package com.bdshikkhok.profile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -49,8 +50,9 @@ public class StudentProfileActivity extends AppCompatActivity {
     @BindView(R.id.student_edit_profile)
     Button stu_editProfile;
     private ProgressDialog progressDialog;
+    private ProfileAPInterface profileAPInterface;
 
-    String update_FirstName,update_LastName,update_institute,update_class;
+    String update_FirstName, update_LastName, update_institute, update_class, username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +65,15 @@ public class StudentProfileActivity extends AppCompatActivity {
         progressDialog.show();
 
         PreferencesManager.initializeInstance(StudentProfileActivity.this);
-        ProfileAPInterface profileAPInterface = RetrofitClientInstance.getRetrofitInstance().create(ProfileAPInterface.class);
-        Call<ProfileResponse> profileResponseCall = profileAPInterface.me("Bearer " + PreferencesManager.getInstance().getToken());
+        profileAPInterface = RetrofitClientInstance.getRetrofitInstance().create(ProfileAPInterface.class);
+
+        Call<ProfileResponse> profileResponseCall = profileAPInterface.getProfile("Bearer " + PreferencesManager.getInstance().getToken());
         profileResponseCall.enqueue(new Callback<ProfileResponse>() {
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
                 progressDialog.dismiss();
                 if (response.code() == 200) {
+                    username = response.body().getUsername();
                     stu_firstName.setText(response.body().getFirstName());
                     stu_lastName.setText(response.body().getLastName());
                     stu_email.setText(response.body().getEmail());
@@ -91,7 +95,7 @@ public class StudentProfileActivity extends AppCompatActivity {
     }
 
     public void editProfileData() {
-
+        progressDialog.show();;
         update_FirstName = stu_firstName.getText().toString();
         update_LastName = stu_lastName.getText().toString();
         update_institute = stu_institute.getText().toString();
@@ -101,18 +105,17 @@ public class StudentProfileActivity extends AppCompatActivity {
         updateProfileRequest.setFirstName(update_FirstName);
         updateProfileRequest.setLastName(update_LastName);
         updateProfileRequest.setInstitute(update_institute);
-        //updateProfileRequest.setC
+        updateProfileRequest.setEmail(stu_email.getText().toString());
+        updateProfileRequest.setUsername(userName.getText().toString());
 
-        ProfileAPInterface profileInterface = RetrofitClientInstance.getRetrofitInstance()
-                .create(ProfileAPInterface.class);
-        Call<UpdateProfileResponse> myProfileResponseCall = profileInterface.me("Bearer " + PreferencesManager.getInstance().getToken(),updateProfileRequest);
+        Call<UpdateProfileResponse> myProfileResponseCall = profileAPInterface.updateProfile(
+                "Bearer " + PreferencesManager.getInstance().getToken(), username, updateProfileRequest);
         myProfileResponseCall.enqueue(new Callback<UpdateProfileResponse>() {
             @Override
             public void onResponse(Call<UpdateProfileResponse> call, Response<UpdateProfileResponse> response) {
-                Log.e("Auth", "response : " + response.code());
-                Log.e("Auth", "response : " + response.message());
+
                 progressDialog.dismiss();
-                if (response.code() == 200) {
+                if (response.code() == 201) {
                     stu_firstName.setText(response.body().getFirstName());
                     stu_lastName.setText(response.body().getLastName());
                     stu_email.setText(response.body().getEmail());
@@ -161,6 +164,7 @@ public class StudentProfileActivity extends AppCompatActivity {
                 public void onClick(View view) {
 
                     editProfileData();
+                    startActivity(new Intent(StudentProfileActivity.this,StudentProfileActivity.class));
                     Toast.makeText(StudentProfileActivity.this, "clicked", Toast.LENGTH_LONG).show();
 
                 }
