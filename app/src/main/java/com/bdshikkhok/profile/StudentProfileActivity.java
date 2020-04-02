@@ -10,12 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bdshikkhok.R;
 import com.bdshikkhok.RetrofitClientInstance;
 import com.bdshikkhok.profile.network.ProfileAPInterface;
 import com.bdshikkhok.profile.network.ProfileResponse;
+import com.bdshikkhok.profile.network.UpdateProfileRequest;
+import com.bdshikkhok.profile.network.UpdateProfileResponse;
 import com.bdshikkhok.util.PreferencesManager;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -30,7 +33,7 @@ public class StudentProfileActivity extends AppCompatActivity {
     @BindView(R.id.profile_image)
     ImageView stu_profile_img;
     @BindView(R.id.user_name)
-    TextInputEditText userName;
+    TextView userName;
     @BindView(R.id.student_first_name)
     TextInputEditText stu_firstName;
     @BindView(R.id.student_last_name)
@@ -46,6 +49,8 @@ public class StudentProfileActivity extends AppCompatActivity {
     @BindView(R.id.student_edit_profile)
     Button stu_editProfile;
     private ProgressDialog progressDialog;
+
+    String update_FirstName,update_LastName,update_institute,update_class;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +72,6 @@ public class StudentProfileActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     stu_firstName.setText(response.body().getFirstName());
                     stu_lastName.setText(response.body().getLastName());
-                    //stu_institute.setVisibility(View.VISIBLE);
-                    // stu_institute.setText(response.body().getInstitute());
-                    //stu_class.setText(response.body().getClass());
                     stu_email.setText(response.body().getEmail());
                     userName.setText(response.body().getUsername());
                     stu_class.setText(response.body().getClass().toString());
@@ -88,8 +90,37 @@ public class StudentProfileActivity extends AppCompatActivity {
 
     }
 
-    public void setProfileData() {
+    public void editProfileData() {
 
+        update_FirstName = stu_firstName.getText().toString();
+        update_LastName = stu_lastName.getText().toString();
+        update_institute = stu_institute.getText().toString();
+        update_class = stu_class.getText().toString();
+
+        UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest();
+        updateProfileRequest.setFirstName(update_FirstName);
+        updateProfileRequest.setLastName(update_LastName);
+        updateProfileRequest.setInstitute(update_institute);
+        //updateProfileRequest.setC
+
+        ProfileAPInterface profileInterface = RetrofitClientInstance.getRetrofitInstance()
+                .create(ProfileAPInterface.class);
+        Call<UpdateProfileResponse> myProfileResponseCall = profileInterface.me("Bearer " + PreferencesManager.getInstance().getToken(),updateProfileRequest);
+        myProfileResponseCall.enqueue(new Callback<UpdateProfileResponse>() {
+            @Override
+            public void onResponse(Call<UpdateProfileResponse> call, Response<UpdateProfileResponse> response) {
+                Log.e("Auth", "response : " + response.code());
+                Log.e("Auth", "response : " + response.message());
+                if ((response.code() == 201)) {
+                    Log.e("Auth", "response : " + "Successfully");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UpdateProfileResponse> call, Throwable t) {
+                Log.e("Auth", "Failure : " + t.getMessage());
+            }
+        });
     }
 
 
@@ -121,6 +152,7 @@ public class StudentProfileActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
+                    editProfileData();
                     Toast.makeText(StudentProfileActivity.this, "clicked", Toast.LENGTH_LONG).show();
 
                 }

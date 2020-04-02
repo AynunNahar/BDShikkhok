@@ -7,18 +7,18 @@
     android:orientation="vertical"
     tools:context=".profile.StudentProfileActivity">
 
-<!--    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#8ABE51">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+    <!--    <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:titleTextColor="#fff" />
+            android:layout_height="wrap_content"
+            android:background="#8ABE51">
 
-    </com.google.android.material.appbar.AppBarLayout>-->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:titleTextColor="#fff" />
+
+        </com.google.android.material.appbar.AppBarLayout>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,8 +35,8 @@
                 android:layout_height="96dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/student_image"
                 android:background="@drawable/profile_image_background"
+                android:src="@drawable/student_image"
                 app:civ_border_color="#8ABE51"
                 app:civ_border_width="1dp" />
 
@@ -48,28 +48,27 @@
                 android:layout_marginRight="20dp"
                 android:theme="@style/TextLabel">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <TextView
                     android:id="@+id/user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:enabled="false"
                     android:gravity="center"
                     android:hint="User Name"
-                    android:textSize="18dp"
                     android:maxLength="15"
+                    android:padding="5dp"
                     android:textColor="#f50529"
-                    android:padding="5dp"/>
+                    android:textSize="18dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp">
+                android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -81,77 +80,77 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/textborder"
+                        android:enabled="false"
                         android:hint="First Name"
-                        android:padding="10dp"
-                        android:textSize="@dimen/my_text_value"
-                        android:maxLength="40"
                         android:inputType="text"
-                        android:textColor="#f50529"
-                        android:enabled="false"/>
+                        android:maxLength="40"
+                        android:padding="10dp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextLabel"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/student_last_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/textborder"
+                        android:enabled="false"
                         android:hint="Last Name"
-                        android:padding="10dp"
-                        android:textSize="@dimen/my_text_value"
-                        android:maxLength="40"
                         android:inputType="text"
-                        android:enabled="false"/>
+                        android:maxLength="40"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextLabel"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/student_institute"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/textborder"
+                        android:enabled="false"
                         android:hint="Institute"
-                        android:padding="10dp"
-                        android:textSize="@dimen/my_text_value"
-                        android:maxLength="40"
                         android:inputType="text"
-                        android:enabled="false"/>
+                        android:maxLength="40"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextLabel"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/student_class"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/textborder"
+                        android:enabled="false"
                         android:hint="Class"
-                        android:padding="10dp"
-                        android:textSize="@dimen/my_text_value"
-                        android:maxLength="40"
                         android:inputType="number"
-                        android:enabled="false"/>
+                        android:maxLength="40"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextLabel"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/student_contact_number"
@@ -160,49 +159,48 @@
                         android:background="@drawable/textborder"
                         android:enabled="false"
                         android:hint="Contact Number"
-                        android:padding="10dp"
-                        android:textSize="@dimen/my_text_value"
+                        android:inputType="number"
                         android:maxLength="15"
-                        android:inputType="number" />
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/TextLabel"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="5dp"
+                    android:theme="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/student_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/textborder"
+                        android:enabled="false"
                         android:hint="Email"
-                        android:padding="10dp"
-                        android:textSize="@dimen/my_text_value"
-                        android:maxLength="40"
                         android:inputType="text"
-                        android:enabled="false" />
+                        android:maxLength="40"
+                        android:padding="10dp"
+                        android:textSize="@dimen/my_text_value" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
 
             <Button
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:id="@+id/student_edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/button_color_onclick"
+                android:padding="10dp"
                 android:text="SAVE"
-                android:textStyle="bold"
-                android:textSize="@dimen/my_text_value"
                 android:textColor="@drawable/button_text_color"
+                android:textSize="@dimen/my_text_value"
+                android:textStyle="bold"
                 android:visibility="invisible" />
-
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
