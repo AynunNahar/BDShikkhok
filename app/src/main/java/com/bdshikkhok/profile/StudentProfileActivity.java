@@ -111,8 +111,16 @@ public class StudentProfileActivity extends AppCompatActivity {
             public void onResponse(Call<UpdateProfileResponse> call, Response<UpdateProfileResponse> response) {
                 Log.e("Auth", "response : " + response.code());
                 Log.e("Auth", "response : " + response.message());
-                if ((response.code() == 201)) {
-                    Log.e("Auth", "response : " + "Successfully");
+                progressDialog.dismiss();
+                if (response.code() == 200) {
+                    stu_firstName.setText(response.body().getFirstName());
+                    stu_lastName.setText(response.body().getLastName());
+                    stu_email.setText(response.body().getEmail());
+                    userName.setText(response.body().getUsername());
+                    stu_class.setText(response.body().getClass().toString());
+                    //stu_institute.setText(response.body().getInstitute().toString());
+                } else {
+                    Log.e("Auth", "Failure : " + response.code());
                 }
             }
 
