@@ -6,87 +6,27 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class RegisterRequest {
-    @SerializedName("activated")
-    @Expose
-    private Boolean activated;
-    @SerializedName("authorities")
-    @Expose
-    private List<String> authorities;
-    @SerializedName("createdBy")
-    @Expose
-    private String createdBy;
-    @SerializedName("createdDate")
-    @Expose
-    private String createdDate;
-    @SerializedName("email")
-    @Expose
-    private String email;
     @SerializedName("firstName")
     @Expose
     private String firstName;
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("imageUrl")
-    @Expose
-    private String imageUrl;
-    @SerializedName("langKey")
-    @Expose
-    private String langKey;
-    @SerializedName("lastModifiedBy")
-    @Expose
-    private String lastModifiedBy;
-    @SerializedName("lastModifiedDate")
-    @Expose
-    private String lastModifiedDate;
     @SerializedName("lastName")
     @Expose
     private String lastName;
-    @SerializedName("login")
+    @SerializedName("username")
     @Expose
-    private String login;
+    private String username;
     @SerializedName("password")
     @Expose
     private String password;
-
-    public Boolean getActivated() {
-        return activated;
-    }
-
-    public void setActivated(Boolean activated) {
-        this.activated = activated;
-    }
-
-    public List<String> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<String> authorities) {
-        this.authorities = authorities;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
+    @SerializedName("userType")
+    @Expose
+    private String userType;
 
     public String getFirstName() {
         return firstName;
@@ -94,46 +34,6 @@ public class RegisterRequest {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getLangKey() {
-        return langKey;
-    }
-
-    public void setLangKey(String langKey) {
-        this.langKey = langKey;
-    }
-
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public String getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(String lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
     }
 
     public String getLastName() {
@@ -144,12 +44,12 @@ public class RegisterRequest {
         this.lastName = lastName;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -158,6 +58,30 @@ public class RegisterRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
 }

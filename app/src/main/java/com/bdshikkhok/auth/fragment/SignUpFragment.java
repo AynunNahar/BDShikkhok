@@ -32,6 +32,10 @@ public class SignUpFragment extends Fragment  {
     EditText registerEmail;
     @BindView(R.id.password)
     EditText registerPassword;
+    @BindView(R.id.first_name)
+    EditText registerFirstName;
+    @BindView(R.id.last_name)
+    EditText registerLastName;
     @BindView(R.id.textInputEditTextName)
     EditText registerName;
     @BindView(R.id.textInputEditTextMobail)
@@ -42,7 +46,7 @@ public class SignUpFragment extends Fragment  {
 
     private static final String TAG = SignUpFragment.class.getSimpleName();
 
-    String name, email, mobile, password, takeKey;
+    String name, email, mobile, password, takeKey,f_name,l_name;
 
     View v;
 
@@ -70,22 +74,17 @@ public class SignUpFragment extends Fragment  {
         password = registerPassword.getText().toString();
         name = registerName.getText().toString();
         mobile = registerMobile.getText().toString();
+        f_name=registerFirstName.getText().toString();
+        l_name=registerLastName.getText().toString();
 
         RegisterRequest registerRequest = new RegisterRequest();
-        registerRequest.setActivated(false);
-        registerRequest.setAuthorities(new ArrayList<>());
-        registerRequest.setCreatedBy("");
-        registerRequest.setCreatedDate("");
+
         registerRequest.setEmail(email);
-        registerRequest.setFirstName(name);
-        registerRequest.setId(0);
-        registerRequest.setImageUrl("");
-        registerRequest.setLangKey("en");
-        registerRequest.setLastModifiedBy("");
-        registerRequest.setLastModifiedDate("");
-        registerRequest.setLastName("");
+        registerRequest.setPhone(mobile);
         registerRequest.setPassword(password);
-        registerRequest.setLogin(name);
+        registerRequest.setUsername(name);
+        registerRequest.setLastName(l_name);
+        registerRequest.setFirstName(f_name);
 
 
         APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
