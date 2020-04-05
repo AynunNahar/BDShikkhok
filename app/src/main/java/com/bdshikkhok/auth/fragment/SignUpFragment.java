@@ -27,8 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUpFragment extends Fragment implements
-        RadioGroup.OnCheckedChangeListener {
+public class SignUpFragment extends Fragment  {
     @BindView(R.id.email)
     EditText registerEmail;
     @BindView(R.id.password)
@@ -40,10 +39,7 @@ public class SignUpFragment extends Fragment implements
     @BindView(R.id.signupbutton)
     Button registerButton;
 
-    @BindView(R.id.radioGroup)
-    RadioGroup radioGroup;
 
-    private String radioButtonSelect;
     private static final String TAG = SignUpFragment.class.getSimpleName();
 
     String name, email, mobile, password, takeKey;
@@ -56,7 +52,6 @@ public class SignUpFragment extends Fragment implements
         v = inflater.inflate(R.layout.fragment_sign_up, container, false);
         ButterKnife.bind(this, v);
 
-        radioGroup.setOnCheckedChangeListener(this);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,21 +111,6 @@ public class SignUpFragment extends Fragment implements
 
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-        switch (checkedId) {
-            case R.id.radio_tutors:
-                //if (checked)
-                radioButtonSelect = "tutor";
-                Log.e("signUp", radioButtonSelect);
-                break;
-            case R.id.radio_others:
-                // if (checked)
-                radioButtonSelect = "other";
-                Log.e("signUp", radioButtonSelect);
-                break;
-        }
-    }
 }
 
 

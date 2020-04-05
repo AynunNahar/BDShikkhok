@@ -12,6 +12,10 @@ public class AuthResponse {
     @Expose
     private String tokenType;
 
+    @SerializedName("userName")
+    @Expose
+    private String userName;
+
     public String getAccessToken() {
         return accessToken;
     }
@@ -28,4 +32,11 @@ public class AuthResponse {
         this.tokenType = tokenType;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
