@@ -85,7 +85,7 @@ public class SignUpFragment extends Fragment  {
         registerRequest.setUsername(name);
         registerRequest.setLastName(l_name);
         registerRequest.setFirstName(f_name);
-
+        registerRequest.setUserType("student");
 
         APIInterface apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
         Call<Void>  registerResponseCall = apiInterface.signup(registerRequest);
