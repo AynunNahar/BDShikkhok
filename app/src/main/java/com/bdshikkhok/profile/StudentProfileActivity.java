@@ -79,16 +79,17 @@ public class StudentProfileActivity extends AppCompatActivity {
                     stu_email.setText(response.body().getEmail());
                     userName.setText(response.body().getUsername());
                     stu_class.setText(response.body().getClass().toString());
-                    //stu_institute.setText(response.body().getInstitute().toString());
+                    stu_contactNumber.setText(response.body().getPhone().toString());
+                    stu_institute.setText(response.body().getInstitute().toString());
                 } else {
-                    Log.e("Auth", "Falure : " + response.code());
+                    Log.e("Auth", "Failure : " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
                 progressDialog.dismiss();
-                Log.e("Auth", "Falure : " + t.getMessage());
+                Log.e("Auth", "Failure : " + t.getMessage());
             }
         });
 
