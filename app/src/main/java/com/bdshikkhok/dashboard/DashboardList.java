@@ -60,6 +60,7 @@ public class DashboardList extends AppCompatActivity {
         vpa.myset(new LogInFragment(), "LogIn");
         vpa.myset(new SignUpFragment(), "SignUp");
         v.setAdapter(vpa);
+
     }
 
     @Override

@@ -6,35 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".dashboard.DashboardList"
     android:orientation="vertical">
-
-    <com.google.android.material.appbar.AppBarLayout
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:orientation="vertical">
 
-        <TableLayout
-            android:id="@+id/dashTabLayout"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:tabIndicatorColor="#B2FF59"
-            app:tabSelectedTextColor="#fff"
-            app:tabTextColor="#212121"/>
+            android:background="@color/colorPrimary">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/dashTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:tabIndicatorColor="#B2FF59"
+                app:tabSelectedTextColor="#fff"
+                app:tabTextColor="#212121"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/dashViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        </com.google.android.material.appbar.AppBarLayout>
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/fab"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="end|bottom"
-    android:src="@drawable/filter_list"
-    android:contentDescription="@string/submit"
-    android:layout_margin="16dp"
-    android:background="@color/colorPrimary"/>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/dashViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end|bottom"        android:src="@drawable/filter_list"
+        android:contentDescription="@string/submit"
+        android:layout_margin="16dp"
+        android:background="@color/colorPrimary" />
+
+</RelativeLayout>
 </LinearLayout>
