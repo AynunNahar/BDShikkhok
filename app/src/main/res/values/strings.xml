@@ -1,16 +1,22 @@
 <resources>
     <string name="app_name">BD Shikkhok</string>
     <string name="submit">Filter</string>
-    <string-array name="mDataset">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+    <string-array name="Subjects_array">
+        <item>Subjects</item>
+        <item>Bangla</item>
+        <item>Mathmetics</item>
+        <item>English</item>
+        <item>Religious</item>
+        <item>Sociology</item>
+        <item>General Science</item>
+        <item>Physics</item>
+        <item>chemistry</item>
+        <item>Biology</item>
+        <item>CSE</item>
+        <item>EEE</item>
+        <item>CE</item>
+        <item>ME</item>
+
     </string-array>
+
 </resources>
