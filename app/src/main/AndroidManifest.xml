@@ -12,15 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".profile.StudentProfileActivity">
+        <activity android:name=".dashboard.DashboardList"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-        </activity>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".profile.StudentProfileActivity"></activity>
         <activity android:name=".auth.AuthActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>
