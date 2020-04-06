@@ -14,6 +14,7 @@ import com.bdshikkhok.R;
 import com.bdshikkhok.auth.adapter.ViewPagerAdapter;
 import com.bdshikkhok.auth.fragment.LogInFragment;
 import com.bdshikkhok.auth.fragment.SignUpFragment;
+import com.bdshikkhok.dashboard.fragment.TutorsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -57,7 +58,7 @@ public class DashboardList extends AppCompatActivity {
 
     void setupMyViewpager(ViewPager v) {
         ViewPagerAdapter vpa = new ViewPagerAdapter(getSupportFragmentManager());
-        vpa.myset(new LogInFragment(), "LogIn");
+        vpa.myset(new TutorsFragment(), "Tutors");
         vpa.myset(new SignUpFragment(), "SignUp");
         v.setAdapter(vpa);
 
