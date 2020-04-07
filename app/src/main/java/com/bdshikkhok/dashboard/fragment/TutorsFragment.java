@@ -9,6 +9,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +23,6 @@ import butterknife.ButterKnife;
 
 public class TutorsFragment extends Fragment {
 
-    View fragment_view;
     @BindView(R.id.tutorRecyclerView)
     RecyclerView tutorRecyclerView;
     LinearLayoutManager layoutManager;
@@ -31,15 +31,30 @@ public class TutorsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fragment_view = inflater.inflate(R.layout.fragment_tutors_ist, container, false);
+        View fragment_view = inflater.inflate(R.layout.fragment_tutors_ist, container, false);
         ButterKnife.bind(this, fragment_view);
-        tutorRecyclerView.setHasFixedSize(true);
+        //tutorRecyclerView.setHasFixedSize(true);
 
-        movieList.add(0,"Sara");
-        movieList.add(1,"Rifat");
+        movieList.add("Sara");
+        movieList.add("Rifat");
         movieList.add("Nazran");
         movieList.add("Ansar");
         movieList.add("Nargis");
+        movieList.add("Lu");
+        movieList.add("To");
+        movieList.add("Ja");
+        movieList.add("Sha");
+        movieList.add("Na");
+        movieList.add("fa");
+        movieList.add("3");
+        movieList.add("6");
+        movieList.add("8");
+        movieList.add("0");
+        movieList.add("Lu");
+        movieList.add("To");
+        movieList.add("Ja");
+        movieList.add("Sha");
+        movieList.add("Na");
         layoutManager = new LinearLayoutManager(getActivity());
         tutorRecyclerView.setLayoutManager(layoutManager);
 

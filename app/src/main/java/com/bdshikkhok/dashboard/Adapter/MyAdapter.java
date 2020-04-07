@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    private ArrayList<String> myDataset=new ArrayList<String>();
+    private ArrayList<String> myDataset;
 
     View view;
     Context ct;
@@ -50,8 +50,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        MyName myName=new MyName(myDataset.get(position));
-        holder.title.setText(myName.getName().toString());
+        //MyName myName=new MyName(myDataset.get(position));
+        holder.title.setText(myDataset.get(position));
 
     }
 
