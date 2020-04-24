@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:orientation="horizontal">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/jafor" />
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nameList"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Muhammed Zafar Iqbal "
+                    android:textColor="#707070"
+                    android:textSize="@dimen/my_text_value"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLines="2"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Professor of computer science and engineering at Shahjalal University of Science and Technology (SUST).["
+                    android:textColor="#C2C2C2"
+                    android:textSize="@dimen/button_text_value" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/discount_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:text="Discount:"
+                        android:textColor="#CBCBCB"
+                        android:textSize="@dimen/button_text_value" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:text="1000tk"
+                        android:textColor="@color/colorRedText"
+                        android:textSize="@dimen/button_text_value" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!--
+                        <RatingBar
+                            android:id="@+id/rating"
+                            android:layout_weight="1"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:numStars="5"
+                            android:max="5"
+                            android:stepSize=".1"
+                            android:isIndicator="true"
+                            android:rating="2.5"
+                            android:theme="@style/RatingBar"
+                            android:layout_alignParentRight="true"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:layout_marginTop="10dp"
+                            android:paddingRight="5dp"/>
+            -->
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end|top"
+                android:background="@drawable/top_background"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:text="Offer"
+                    android:textColor="@color/colorBaseText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

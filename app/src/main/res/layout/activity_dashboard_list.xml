@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".dashboard.DashboardList"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorBaseText">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -55,7 +56,7 @@
                 android:src="@drawable/filter_list"
                 android:contentDescription="@string/submit"
                 android:layout_margin="16dp"
-                app:backgroundTint="@color/colorPrimary"
+                app:backgroundTint="#6a1b9a"
                 app:borderWidth="0dp"
                 app:elevation="6dp"
                 app:fabSize="normal"

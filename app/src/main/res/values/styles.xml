@@ -22,8 +22,8 @@
         <item name="colorControlActivated">#98B371</item>
     </style>
 
-    <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">#A69D62</item>
-        <item name="colorControlActivated">@color/colorPrimary</item>
+    <style name="AppThemeRatingBar" parent="Theme.AppCompat">
+        <item name="colorAccent">#f9a825</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 </resources>

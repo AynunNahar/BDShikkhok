@@ -5,7 +5,7 @@
     <item
         android:id="@+id/student_updateProfile"
         android:title="Update profile"
-        app:showAsAction="collapseActionView"
+        app:showAsAction="withText"
         android:icon="@drawable/close_black"/>
     <item
         android:id="@+id/passwordC"
